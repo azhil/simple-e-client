@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --progress --color",
-    "prod": "webpack --config webpack.prod.js --progress --color --profile --json > stats.json",
+    "prod": "webpack --config webpack.prod.js --progress --color",
     "analyze": "webpack-bundle-analyzer ./stats.json ./docs/assets -m static -r ./docs/assets/report.html -s gzip -O"
   },
   "keywords": [],
