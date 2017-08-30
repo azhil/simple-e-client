@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --progress --color",
     "prod": "webpack --config webpack.prod.js --progress --color",
-    "analyze": "webpack-bundle-analyzer ./stats.json ./docs/assets -m static -r ./docs/assets/report.html -s gzip -O"
+    "analyze": "webpack-bundle-analyzer ./stats.json ./www/assets -m static -r ./www/assets/report.html -s gzip -O"
   },
   "keywords": [],
   "author": "azhil",

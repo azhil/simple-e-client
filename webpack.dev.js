@@ -20,7 +20,7 @@ module.exports = merge.strategy(
 
         devServer: {
             hot: true,
-            contentBase: path.join(__dirname, 'docs'),
+            contentBase: path.join(__dirname, 'www'),
             publicPath: '/assets/',
             historyApiFallback: true
         },

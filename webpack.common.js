@@ -16,7 +16,7 @@ module.exports = {
     ],
 
     output: {
-        path: path.join(__dirname, 'docs', 'assets'),
+        path: path.join(__dirname, 'www', 'assets'),
         publicPath: '/assets/',
         filename: 'app.js'
     },
@@ -53,7 +53,7 @@ module.exports = {
 
         new HtmlPlugin({
             title: 'Simple e-mail client',
-            filename: path.join(__dirname, 'docs', 'index.html'),
+            filename: path.join(__dirname, 'www', 'index.html'),
             template: path.join(__dirname, 'templates', 'index.ejs'),
             alwaysWriteToDisk: true
         }),

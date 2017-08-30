@@ -37,4 +37,4 @@ Compiles sources and starts local development server at __http://localhost:8080_
 npm run prod
 ```
 
-Compiles sources and pushes everything into __./docs__
+Compiles sources and pushes everything into __./www__
