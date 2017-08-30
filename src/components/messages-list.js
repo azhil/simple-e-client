@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import MessagesListItemContainer from 'components/containers/messages-list-item';
@@ -38,7 +38,7 @@ const ThereAreNoMessages = styled.div`
     padding: 25px 0;
 `;
 
-class MessagesList extends Component {
+export default class MessagesList extends Component {
     renderListItem(id) {
         return (
             <ListItem key={id}>
@@ -69,5 +69,3 @@ class MessagesList extends Component {
         );
     }
 }
-
-export default MessagesList;

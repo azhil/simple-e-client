@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Flex, Box } from 'grid-styled';
 import styled from 'styled-components';
@@ -9,7 +8,7 @@ import media from 'utils-css/media';
 import IconList from 'react-icons/lib/fa/list';
 import IconClose from 'react-icons/lib/fa/close'
 
-import { HEIGHT_HEADER, HEIGHT_FOOTER } from 'constants/config';
+import { HEIGHT_HEADER } from 'constants/config';
 
 import * as NavigationMenuActions from 'actions/navigation-menu';
 import * as NavigationMenuSelectors from 'selectors/navigation-menu';
