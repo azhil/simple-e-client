@@ -4,8 +4,8 @@ const path = require('path');
 const webpack = require('webpack');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlPlugin = require('html-webpack-plugin');
-const HtmlHardDiskPlugin = require('html-webpack-harddisk-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHardDiskPlugin = require('html-webpack-harddisk-plugin');
 
 module.exports = {
     entry: [
@@ -16,8 +16,8 @@ module.exports = {
     ],
 
     output: {
-        path: path.join(__dirname, 'www', 'assets'),
-        publicPath: '/assets/',
+        path: path.join(__dirname, 'docs', 'assets'),
+        publicPath: process.env.IS_PROD ? '/testing-out-gh-pages/assets/' : '/assets/',
         filename: 'app.js'
     },
 
@@ -51,13 +51,14 @@ module.exports = {
 
         new ExtractTextPlugin('base.min.css'),
 
-        new HtmlPlugin({
+        new HtmlWebpackPlugin({
             title: 'Simple e-mail client',
-            filename: path.join(__dirname, 'www', 'index.html'),
+            filename: path.join(__dirname, 'docs', 'index.html'),
             template: path.join(__dirname, 'templates', 'index.ejs'),
-            alwaysWriteToDisk: true
+            alwaysWriteToDisk: true,
+            isProduction: process.env.IS_PROD
         }),
 
-        new HtmlHardDiskPlugin()
+        new HtmlWebpackHardDiskPlugin()
     ]
 };

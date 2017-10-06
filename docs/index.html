@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Simple e-mail client</title>
     <style>
       body {
         font-family: monospace;
       }
     </style>
-  </head>
+  <link href="/testing-out-gh-pages/assets/base.min.css" rel="stylesheet"></head>
   <body>
       <div id="root">
       </div>
-      <% if (htmlWebpackPlugin.options.isProduction) { %>
+      
         <script type="text/javascript" src="/testing-out-gh-pages/assets/history-updater.js"></script>
-      <% } %>
-  </body>
+      
+  <script type="text/javascript" src="/testing-out-gh-pages/assets/app.js"></script></body>
 </html>
