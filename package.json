@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --progress --color",
-    "prod": "webpack --config webpack.prod.js --progress --color",
-    "analyze": "webpack-bundle-analyzer ./stats.json ./www/assets -m static -r ./www/assets/report.html -s gzip -O"
+    "prod": "IS_PROD='1' webpack --config webpack.prod.js --progress --color --profile --json > stats.json",
+    "analyze": "webpack-bundle-analyzer ./stats.json ./docs/assets -m static -r ./docs/report.html -s gzip -O"
   },
   "keywords": [],
   "author": "azhil",
@@ -40,6 +40,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "copy-webpack-plugin": "^4.1.0",
     "css-loader": "^0.28.5",
     "extract-text-webpack-plugin": "^3.0.0",
     "html-webpack-harddisk-plugin": "^0.1.0",

@@ -20,13 +20,20 @@ module.exports = merge.strategy(
 
         devServer: {
             hot: true,
-            contentBase: path.join(__dirname, 'www'),
+            contentBase: path.join(__dirname, 'docs'),
             publicPath: '/assets/',
             historyApiFallback: true
         },
 
         plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    'BASENAME': JSON.stringify('')
+                }
+            }),
+
             new webpack.HotModuleReplacementPlugin(),
+
             new webpack.NamedModulesPlugin()
         ]
     }
