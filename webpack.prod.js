@@ -27,7 +27,7 @@ module.exports = merge.strategy(
             new webpack.DefinePlugin({
                 'process.env': {
                     'NODE_ENV': JSON.stringify('production'),
-                    'BASENAME': JSON.stringify('/testing-out-gh-pages')
+                    'BASENAME': JSON.stringify('/simple-e-client')
                 }
             }),
 

@@ -17,7 +17,7 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, 'docs', 'assets'),
-        publicPath: process.env.IS_PROD ? '/testing-out-gh-pages/assets/' : '/assets/',
+        publicPath: process.env.IS_PROD ? '/simple-e-client/assets/' : '/assets/',
         filename: 'app.js'
     },
 
