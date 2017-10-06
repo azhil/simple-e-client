@@ -33,9 +33,7 @@ const ThereAreNoMessages = styled.div`
 
     color: darkgrey;
 
-    text-align: center;
-
-    padding: 25px 0;
+    padding: 15px;
 `;
 
 export default class MessagesList extends Component {
