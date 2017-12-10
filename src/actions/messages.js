@@ -24,7 +24,7 @@ const updateMessageFailure = (id, error) => ({
     }
 });
 
-export const put = (id, params) => async (dispatch) => {
+export const put = (id, params) => async dispatch => {
     dispatch(updateMessage(id));
 
     const message = await dummyPut(`messages/${id}`, params);
@@ -51,9 +51,9 @@ const deleteMessageFailure = (id, error) => ({
     }
 });
 
-export const del = id => async (dispatch) => {
+export const del = id => async dispatch => {
     dispatch(deleteMessage(id));
-    
+
     await dummyDel(`messages/${id}`);
 
     dispatch(deleteMessageSuccess(id));
