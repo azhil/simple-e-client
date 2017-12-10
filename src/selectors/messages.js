@@ -4,8 +4,6 @@ import moment from 'moment';
 export const getList = state => state.messages.list;
 export const getIndexedList = state => state.messages.indexedList;
 
-export const getIsLoading = state => state.messages.isLoading['_root'];
-
 export const getMessage = id => state => getIndexedList(state)[id] || {};
 
 export const getSender = id => state => {
