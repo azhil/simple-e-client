@@ -3,8 +3,6 @@ import { routerMiddleware } from 'react-router-redux'
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
 
-import { noop } from 'lodash';
-
 import navigateToRootAfterMessageDeleted from 'middleware/navigate-to-root-after-message-deleted';
 import updateMessageWhenNavigatedTo from 'middleware/update-message-when-navigated-to';
 
@@ -17,18 +15,26 @@ const composeEnhancers = (
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 ) || compose;
 
+let middleware = [
+    thunkMiddleware,
+    navigateToRootAfterMessageDeleted,
+    updateMessageWhenNavigatedTo,
+    routerMiddleware(history)
+];
+
+if (process.env.NODE_ENV !== 'production') {
+    middleware = [
+        ...middleware,
+        logger
+    ];
+}
+
 const store = createStore(
     reducers
     , composeEnhancers(
         applyMiddleware(
-            thunkMiddleware,
-            navigateToRootAfterMessageDeleted,
-            updateMessageWhenNavigatedTo,
-            routerMiddleware(history)
+            ...middleware
         )
-        , process.env.NODE_ENV !== 'production'
-            ? applyMiddleware(logger)
-            : noop
     )
 );
 
