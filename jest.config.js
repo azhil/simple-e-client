@@ -1,7 +1,8 @@
 module.exports = {
-    "moduleDirectories": [
-        "node_modules",
-        "src"
+    verbose: true,
+    moduleDirectories: [
+        'node_modules',
+        'src'
     ],
     collectCoverage: true
 };

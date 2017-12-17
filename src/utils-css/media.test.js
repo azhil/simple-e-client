@@ -15,7 +15,7 @@ const DIV = styled.div`
     ${media.screenW`background-color: blue;`}
 `;
 
-it("generates media queries", () => {
+it('should generate media queries', () => {
     const div = renderer.create(<DIV />).toJSON();
 
     expect(div).toHaveStyleRule(
