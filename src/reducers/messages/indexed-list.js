@@ -1,6 +1,8 @@
 import * as MessagesActionTypes from 'action-types/messages';
 
-export default (state = {}, action) => {
+export const DEFAULT_STATE = {};
+
+export default (state = DEFAULT_STATE, action = {}) => {
     switch(action.type) {
         case MessagesActionTypes.MESSAGES_REQUEST_ALL_SUCCESS:
         {
@@ -20,14 +22,19 @@ export default (state = {}, action) => {
         {
             const { id, message } = action.payload;
 
-            return {
-                ...state,
-                [id]: message
-            };
+            if (id in state) {
+                return {
+                    ...state,
+                    [id]: message
+                };
+            }
+
+            return state;
         }
 
         case MessagesActionTypes.MESSAGES_DELETE_SUCCESS: {
             const { id } = action.payload;
+
             if (id in state) {
                 const nextState = { ...state };
 

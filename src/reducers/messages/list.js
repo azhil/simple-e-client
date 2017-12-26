@@ -1,6 +1,8 @@
 import * as MessagesActionTypes from 'action-types/messages';
 
-export default (state = [], action) => {
+export const DEFAULT_STATE = [];
+
+export default (state = DEFAULT_STATE, action = {}) => {
     switch(action.type) {
         case MessagesActionTypes.MESSAGES_REQUEST_ALL_SUCCESS:
             return action.payload.messages.map(message => message.uid);
@@ -17,7 +19,7 @@ export default (state = [], action) => {
 
             return state;
         }
-        
+
         default:
             return state;
     }
