@@ -1,5 +1,5 @@
 import {
-    get, post,
+    get, post, del, put,
     dummyGet, dummyPost
 } from './request';
 
@@ -52,6 +52,88 @@ describe('testing fetching api', () => {
             {
                 method: 'POST',
                 body: JSON.stringify(data)
+            }
+        );
+    });
+
+    it('should post empty data', async () => {
+        expect.assertions(2);
+
+        const successfulFetch = fetch.mockResponseOnce(
+            JSON.stringify({}),
+            { status: 200 }
+        );
+
+        const response = await post('foo');
+        const responseJSON = await response.json();
+
+        expect(successfulFetch).toHaveBeenCalledTimes(1);
+        expect(successfulFetch).toHaveBeenCalledWith(
+            `${API_ROOT}/foo`,
+            {
+                method: 'POST',
+                body: JSON.stringify({})
+            }
+        );
+    });
+
+    it('should delete expected data', async () => {
+        expect.assertions(2);
+
+        const successfulFetch = fetch.mockResponseOnce(
+            JSON.stringify({}),
+            { status: 200 }
+        );
+
+        const response = await del('foo');
+        const responseJSON = await response.json();
+
+        expect(successfulFetch).toHaveBeenCalledTimes(1);
+        expect(successfulFetch).toHaveBeenCalledWith(
+            `${API_ROOT}/foo`,
+            { method: 'DELETE' }
+        );
+    });
+
+    it('should put expected data', async () => {
+        expect.assertions(2);
+
+        const data = { foo: 'bar' };
+        const successfulFetch = fetch.mockResponseOnce(
+            JSON.stringify({}),
+            { status: 200 }
+        );
+
+        const response = await put('foo', data);
+        const responseJSON = await response.json();
+
+        expect(successfulFetch).toHaveBeenCalledTimes(1);
+        expect(successfulFetch).toHaveBeenCalledWith(
+            `${API_ROOT}/foo`,
+            {
+                method: 'PUT',
+                body: JSON.stringify(data)
+            }
+        );
+    });
+
+    it('should put empty data', async () => {
+        expect.assertions(2);
+
+        const successfulFetch = fetch.mockResponseOnce(
+            JSON.stringify({}),
+            { status: 200 }
+        );
+
+        const response = await put('foo');
+        const responseJSON = await response.json();
+
+        expect(successfulFetch).toHaveBeenCalledTimes(1);
+        expect(successfulFetch).toHaveBeenCalledWith(
+            `${API_ROOT}/foo`,
+            {
+                method: 'PUT',
+                body: JSON.stringify({})
             }
         );
     });
