@@ -6,6 +6,7 @@ import {
 import { API_ROOT } from 'constants/config';
 
 describe('testing fetching api', () => {
+
     beforeEach(() => {
         global.fetch = require('jest-fetch-mock');
     });

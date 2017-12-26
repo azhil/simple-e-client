@@ -2,6 +2,7 @@ import * as MessagesActionTypes from 'action-types/messages';
 import listReducer, { DEFAULT_STATE } from './list';
 
 describe('testing "list" reducer', () => {
+
     it('should return default state', () => {
         expect.assertions(2);
 
