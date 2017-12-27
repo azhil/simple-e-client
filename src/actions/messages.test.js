@@ -6,28 +6,27 @@ import * as actions from './messages';
 
 import { RAW_DATA as MESSAGES } from 'constants/config';
 
-const middlewares = [ thunkMiddleware ];
+const middlewares = [thunkMiddleware];
 const mockStore = configureMockStore(middlewares);
 
 describe('messages actions', () => {
-
-    beforeEach(function () {
+    beforeEach(function() {
         global.fetch = require('jest-fetch-mock');
     });
 
-    afterEach(function () {
+    afterEach(function() {
         fetch.resetMocks();
     });
 
     it('gets all the messages', async () => {
-        fetch.mockResponseOnce(
-            JSON.stringify(MESSAGES),
-            { status: 200 }
-        );
+        fetch.mockResponseOnce(JSON.stringify(MESSAGES), { status: 200 });
 
         const expectedActions = [
             { type: actionTypes.MESSAGES_REQUEST_ALL },
-            { type: actionTypes.MESSAGES_REQUEST_ALL_SUCCESS, payload: { messages: MESSAGES } }
+            {
+                type: actionTypes.MESSAGES_REQUEST_ALL_SUCCESS,
+                payload: { messages: MESSAGES }
+            }
         ];
 
         const store = mockStore({});
@@ -38,10 +37,7 @@ describe('messages actions', () => {
     });
 
     it('updates message with the specified id', async () => {
-        fetch.mockResponseOnce(
-            JSON.stringify({}),
-            { status: 200 }
-        );
+        fetch.mockResponseOnce(JSON.stringify({}), { status: 200 });
 
         const expectedActions = [
             { type: actionTypes.MESSAGES_UPDATE },
@@ -64,10 +60,7 @@ describe('messages actions', () => {
     });
 
     it('deletes message with the specified id', async () => {
-        fetch.mockResponseOnce(
-            JSON.stringify({}),
-            { status: 200 }
-        );
+        fetch.mockResponseOnce(JSON.stringify({}), { status: 200 });
 
         const expectedActions = [
             { type: actionTypes.MESSAGES_DELETE },

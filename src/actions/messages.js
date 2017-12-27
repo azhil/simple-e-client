@@ -15,7 +15,7 @@ const requestAllMessagesSuccess = messages => ({
     }
 });
 
-export const getAll = () => async (dispatch) => {
+export const getAll = () => async dispatch => {
     dispatch(requestAllMessages());
 
     await dummyGet('messages');

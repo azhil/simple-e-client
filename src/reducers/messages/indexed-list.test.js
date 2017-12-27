@@ -2,7 +2,6 @@ import * as MessagesActionTypes from 'action-types/messages';
 import indexedListReducer, { DEFAULT_STATE } from './indexed-list';
 
 describe('testing "indexed-list" reducer', () => {
-
     it('should return default state', () => {
         expect.assertions(2);
 
@@ -16,38 +15,23 @@ describe('testing "indexed-list" reducer', () => {
         const action = {
             type: MessagesActionTypes.MESSAGES_REQUEST_ALL_SUCCESS,
             payload: {
-                messages: [
-                    { uid: 1 },
-                    { uid: 2 },
-                    { uid: 3 }
-                ]
+                messages: [{ uid: 1 }, { uid: 2 }, { uid: 3 }]
             }
         };
 
-        expect(indexedListReducer({}, action))
-            .toEqual({
-                1: { uid: 1 },
-                2: { uid: 2 },
-                3: { uid: 3 }
-            });
-
-        expect(
-            indexedListReducer(
-                { 2: { uid: 2 } },
-                action
-            )
-        ).toEqual({
+        expect(indexedListReducer({}, action)).toEqual({
             1: { uid: 1 },
             2: { uid: 2 },
             3: { uid: 3 }
         });
 
-        expect(
-            indexedListReducer(
-                { 4: { uid: 4 } },
-                action
-            )
-        ).toEqual({
+        expect(indexedListReducer({ 2: { uid: 2 } }, action)).toEqual({
+            1: { uid: 1 },
+            2: { uid: 2 },
+            3: { uid: 3 }
+        });
+
+        expect(indexedListReducer({ 4: { uid: 4 } }, action)).toEqual({
             1: { uid: 1 },
             2: { uid: 2 },
             3: { uid: 3 },
@@ -63,21 +47,11 @@ describe('testing "indexed-list" reducer', () => {
             payload: { id: 1, message: { text: 'Hello, World!' } }
         };
 
-        expect(
-            indexedListReducer(
-                { 1: { text: 'Oh, wow!' } },
-                action
-            )
-        ).toEqual(
+        expect(indexedListReducer({ 1: { text: 'Oh, wow!' } }, action)).toEqual(
             { 1: { text: 'Hello, World!' } }
         );
 
-        expect(
-            indexedListReducer(
-                { 2: { text: 'Oh, wow!' } },
-                action
-            )
-        ).toEqual(
+        expect(indexedListReducer({ 2: { text: 'Oh, wow!' } }, action)).toEqual(
             { 2: { text: 'Oh, wow!' } }
         );
     });
