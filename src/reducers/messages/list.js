@@ -3,14 +3,14 @@ import * as MessagesActionTypes from 'action-types/messages';
 export const DEFAULT_STATE = [];
 
 export default (state = DEFAULT_STATE, action = {}) => {
-    switch(action.type) {
+    switch (action.type) {
         case MessagesActionTypes.MESSAGES_REQUEST_ALL_SUCCESS:
             return action.payload.messages.map(message => message.uid);
 
         case MessagesActionTypes.MESSAGES_DELETE_SUCCESS: {
             const { id } = action.payload;
             if (state.includes(id)) {
-                const nextState = [ ...state ];
+                const nextState = [...state];
 
                 nextState.splice(nextState.indexOf(id), 1);
 
@@ -23,4 +23,4 @@ export default (state = DEFAULT_STATE, action = {}) => {
         default:
             return state;
     }
-}
+};

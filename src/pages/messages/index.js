@@ -25,7 +25,7 @@ const MailBoxSidebar = styled.div`
         overflow-y: auto;
 
         background-color: ghostwhite;
-    `}
+    `};
 `;
 
 const MailBoxContent = styled.div`
@@ -41,12 +41,12 @@ const MailBoxContent = styled.div`
     background-color: ghostwhite;
 
     border-left: none;
-    
+
     ${media.mobileL`
         left: 40%;
 
         border-left: 1px solid lightgrey;
-    `}
+    `};
 `;
 
 class Messages extends Component {

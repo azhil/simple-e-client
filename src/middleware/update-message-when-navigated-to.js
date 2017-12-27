@@ -1,4 +1,4 @@
-import { LOCATION_CHANGE } from 'react-router-redux'
+import { LOCATION_CHANGE } from 'react-router-redux';
 import isEmpty from 'lodash/isEmpty';
 
 import * as MessagesActions from 'actions/messages';
@@ -18,22 +18,16 @@ export default store => next => async action => {
             const state = store.getState();
             const message = MessagesSelectors.getMessage(messageId)(state);
 
-            if (
-                !isEmpty(message)
-                && !message.isViewed
-            ) {
+            if (!isEmpty(message) && !message.isViewed) {
                 await store.dispatch(
-                    MessagesActions.put(
-                        Number(messageIdMatch[1]),
-                        {
-                            ...message,
-                            isViewed: true
-                        }
-                    )
+                    MessagesActions.put(Number(messageIdMatch[1]), {
+                        ...message,
+                        isViewed: true
+                    })
                 );
             }
         }
     }
 
     return result;
-}
+};

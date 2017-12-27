@@ -71,9 +71,7 @@ class Page extends Component {
                 </FixedHeader>
                 <FixedContent>
                     <Container>
-                        {
-                            React.Children.only(this.props.children)
-                        }
+                        {React.Children.only(this.props.children)}
                     </Container>
                 </FixedContent>
                 <FixedFooter>

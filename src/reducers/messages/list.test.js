@@ -2,7 +2,6 @@ import * as MessagesActionTypes from 'action-types/messages';
 import listReducer, { DEFAULT_STATE } from './list';
 
 describe('testing "list" reducer', () => {
-
     it('should return default state', () => {
         expect.assertions(2);
 
@@ -14,11 +13,7 @@ describe('testing "list" reducer', () => {
         const action = {
             type: MessagesActionTypes.MESSAGES_REQUEST_ALL_SUCCESS,
             payload: {
-                messages: [
-                    { uid: 1 },
-                    { uid: 2 },
-                    { uid: 3 }
-                ]
+                messages: [{ uid: 1 }, { uid: 2 }, { uid: 3 }]
             }
         };
 

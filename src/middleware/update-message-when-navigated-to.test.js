@@ -6,24 +6,20 @@ import * as messagesActionTypes from 'action-types/messages';
 
 import updateMessageWhenNavigatedTo from './update-message-when-navigated-to';
 
-const middlewares = [ updateMessageWhenNavigatedTo, thunkMiddleware ];
+const middlewares = [updateMessageWhenNavigatedTo, thunkMiddleware];
 const mockStore = configureMockStore(middlewares);
 
 describe('testing "update message when navigated to" middleware', () => {
-
-    beforeEach(function () {
+    beforeEach(function() {
         global.fetch = require('jest-fetch-mock');
     });
 
-    afterEach(function () {
+    afterEach(function() {
         fetch.resetMocks();
     });
 
     it('should update message\'s "isViewed" property when navigated to', async () => {
-        fetch.mockResponseOnce(
-            JSON.stringify({}),
-            { status: 200 }
-        );
+        fetch.mockResponseOnce(JSON.stringify({}), { status: 200 });
 
         const store = mockStore({
             messages: {
@@ -54,7 +50,7 @@ describe('testing "update message when navigated to" middleware', () => {
         ]);
     });
 
-    it('should not update any message\'s properties when it\'s not navigated to', () => {
+    it("should not update any message's properties when it's not navigated to", () => {
         const store = mockStore({});
 
         const action = {
@@ -66,7 +62,7 @@ describe('testing "update message when navigated to" middleware', () => {
 
         store.dispatch(action);
 
-        expect(store.getActions()).toEqual([ action ]);
+        expect(store.getActions()).toEqual([action]);
     });
 
     it('should not update if message was viewed already', () => {
@@ -89,7 +85,7 @@ describe('testing "update message when navigated to" middleware', () => {
 
         store.dispatch(action);
 
-        expect(store.getActions()).toEqual([ action ]);
+        expect(store.getActions()).toEqual([action]);
     });
 
     it('should not update if message is empty', () => {
@@ -104,6 +100,6 @@ describe('testing "update message when navigated to" middleware', () => {
 
         store.dispatch(action);
 
-        expect(store.getActions()).toEqual([ action ]);
+        expect(store.getActions()).toEqual([action]);
     });
-})
+});

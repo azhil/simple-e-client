@@ -1,4 +1,4 @@
-import { push } from 'react-router-redux'
+import { push } from 'react-router-redux';
 
 import * as MessagesActionTypes from 'action-types/messages';
 
@@ -17,4 +17,4 @@ export default store => next => action => {
     }
 
     return result;
-}
+};

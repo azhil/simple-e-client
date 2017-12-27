@@ -1,18 +1,15 @@
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 import moment from 'moment';
 
 import {
     getList,
     getIndexedList,
-
     getMessage,
-
     getSender,
     getSubject,
     getContent,
     getTimeSent,
     getIsViewed,
-
     getNotViewed
 } from './messages';
 
@@ -49,7 +46,6 @@ const STATE = {
 };
 
 describe('testing messages selector', () => {
-
     it('should return messages list', () => {
         expect(getList(STATE)).toBe(STATE.messages.list);
     });
@@ -65,7 +61,7 @@ describe('testing messages selector', () => {
         expect(getMessage(4)(STATE)).toEqual({});
     });
 
-    it('should return message\'s properties', () => {
+    it("should return message's properties", () => {
         expect.assertions(5);
 
         expect(getSender(1)(STATE)).toBe('Joe');
@@ -73,8 +69,9 @@ describe('testing messages selector', () => {
         expect(getContent(1)(STATE)).toBe('bar');
 
         expect(getTimeSent(1)(STATE)).toBe(
-            moment(STATE.messages.indexedList['1'].time_sent * 1000)
-                .format('ddd DD MMMM, HH:mm')
+            moment(STATE.messages.indexedList['1'].time_sent * 1000).format(
+                'ddd DD MMMM, HH:mm'
+            )
         );
 
         expect(getIsViewed(1)(STATE)).toBe(false);
