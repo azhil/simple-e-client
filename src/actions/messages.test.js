@@ -20,7 +20,7 @@ describe('messages actions', () => {
     });
 
     it('gets all the messages', async () => {
-        const successfulFetch = fetch.mockResponseOnce(
+        fetch.mockResponseOnce(
             JSON.stringify(MESSAGES),
             { status: 200 }
         );
@@ -38,7 +38,7 @@ describe('messages actions', () => {
     });
 
     it('updates message with the specified id', async () => {
-        const successfulFetch = fetch.mockResponseOnce(
+        fetch.mockResponseOnce(
             JSON.stringify({}),
             { status: 200 }
         );
@@ -64,7 +64,7 @@ describe('messages actions', () => {
     });
 
     it('deletes message with the specified id', async () => {
-        const successfulFetch = fetch.mockResponseOnce(
+        fetch.mockResponseOnce(
             JSON.stringify({}),
             { status: 200 }
         );
