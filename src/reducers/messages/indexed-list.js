@@ -3,14 +3,16 @@ import * as MessagesActionTypes from 'action-types/messages';
 export const DEFAULT_STATE = {};
 
 export default (state = DEFAULT_STATE, action = {}) => {
-    switch(action.type) {
-        case MessagesActionTypes.MESSAGES_REQUEST_ALL_SUCCESS:
-        {
-            const messages = action.payload.messages.reduce((messages, message) => {
-                messages[message.uid] = message;
+    switch (action.type) {
+        case MessagesActionTypes.MESSAGES_REQUEST_ALL_SUCCESS: {
+            const messages = action.payload.messages.reduce(
+                (messages, message) => {
+                    messages[message.uid] = message;
 
-                return messages;
-            }, {});
+                    return messages;
+                },
+                {}
+            );
 
             return {
                 ...state,
@@ -18,8 +20,7 @@ export default (state = DEFAULT_STATE, action = {}) => {
             };
         }
 
-        case MessagesActionTypes.MESSAGES_UPDATE_SUCCESS:
-        {
+        case MessagesActionTypes.MESSAGES_UPDATE_SUCCESS: {
             const { id, message } = action.payload;
 
             if (id in state) {
@@ -49,4 +50,4 @@ export default (state = DEFAULT_STATE, action = {}) => {
         default:
             return state;
     }
-}
+};

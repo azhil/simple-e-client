@@ -56,7 +56,7 @@ class MessageContent extends Component {
                 <ThereIsNoMessage>
                     There is no message selected
                 </ThereIsNoMessage>
-            )
+            );
         }
 
         return (
@@ -85,7 +85,7 @@ const mapStateToProps = (state, { id }) => ({
     sender: MessagesSelectors.getSender(id)(state),
     subject: MessagesSelectors.getSubject(id)(state),
     timeSent: MessagesSelectors.getTimeSent(id)(state),
-    message: MessagesSelectors.getContent(id)(state),
+    message: MessagesSelectors.getContent(id)(state)
 });
 
 export default connect(mapStateToProps)(MessageContent);

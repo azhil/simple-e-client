@@ -18,7 +18,7 @@ const Sender = styled.span`
 
 const Subject = styled.span`
     color: darkgrey;
-    
+
     font-weight: normal;
     font-size: 0.95rem;
 `;
@@ -37,7 +37,7 @@ export default class MessagesListItem extends Component {
         e.stopPropagation();
 
         this.props.onDelete();
-    }
+    };
 
     render() {
         const { sender, subject, timeSent, isViewed } = this.props;
@@ -45,17 +45,23 @@ export default class MessagesListItem extends Component {
         return (
             <Flex>
                 <Box mr="5px">
-                    {
-                        isViewed
-                            ? <IconEyeSlash color="lightgrey" />
-                            : <IconEye color="lightblue" />
-                    }
+                    {isViewed ? (
+                        <IconEyeSlash color="lightgrey" />
+                    ) : (
+                        <IconEye color="lightblue" />
+                    )}
                 </Box>
                 <Box mx="5px" flex="1">
                     <Flex column>
-                        <Box mb="2px"><Sender>{sender}</Sender></Box>
-                        <Box my="2px"><Subject>{subject}</Subject></Box>
-                        <BoxRightAligned mt="2px"><TimeSent>{timeSent}</TimeSent></BoxRightAligned>
+                        <Box mb="2px">
+                            <Sender>{sender}</Sender>
+                        </Box>
+                        <Box my="2px">
+                            <Subject>{subject}</Subject>
+                        </Box>
+                        <BoxRightAligned mt="2px">
+                            <TimeSent>{timeSent}</TimeSent>
+                        </BoxRightAligned>
                     </Flex>
                 </Box>
                 <BoxRightAligned ml="5px">

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import media from 'utils-css/media';
 
 import IconList from 'react-icons/lib/fa/list';
-import IconClose from 'react-icons/lib/fa/close'
+import IconClose from 'react-icons/lib/fa/close';
 
 import { HEIGHT_HEADER } from 'constants/config';
 
@@ -26,11 +26,11 @@ const Flex100Height = styled(Flex)`
 `;
 
 const BoxMobile = styled(Box)`
-    ${media.mobileL`display: none;`}
-
     align-self: center;
 
     padding: 0 15px;
+
+    ${media.mobileL`display: none;`};
 `;
 
 const NewMessagesText = styled.div`
@@ -53,11 +53,17 @@ class Header extends Component {
         return (
             <Flex100Height>
                 <BoxMobile>
-                    {
-                        this.props.isMenuShown
-                            ? <IconClose style={ICON_STYLE} onClick={this.props.onHideMenu} />
-                            : <IconList style={ICON_STYLE} onClick={this.props.onShowMenu} />
-                    }
+                    {this.props.isMenuShown ? (
+                        <IconClose
+                            style={ICON_STYLE}
+                            onClick={this.props.onHideMenu}
+                        />
+                    ) : (
+                        <IconList
+                            style={ICON_STYLE}
+                            onClick={this.props.onShowMenu}
+                        />
+                    )}
                 </BoxMobile>
                 <BoxRightAligned>
                     <NewMessagesText>

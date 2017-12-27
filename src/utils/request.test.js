@@ -1,12 +1,8 @@
-import {
-    get, post, del, put,
-    dummyGet, dummyPost
-} from './request';
+import { get, post, del, put, dummyGet, dummyPost } from './request';
 
 import { API_ROOT } from 'constants/config';
 
 describe('testing fetching api', () => {
-
     beforeEach(() => {
         global.fetch = require('jest-fetch-mock');
     });
@@ -19,19 +15,17 @@ describe('testing fetching api', () => {
         expect.assertions(3);
 
         const data = { foo: 'bar' };
-        const successfulFetch = fetch.mockResponseOnce(
-            JSON.stringify(data),
-            { status: 200 }
-        );
+        const successfulFetch = fetch.mockResponseOnce(JSON.stringify(data), {
+            status: 200
+        });
 
         const response = await get('foo');
         const responseJSON = await response.json();
 
         expect(successfulFetch).toHaveBeenCalledTimes(1);
-        expect(successfulFetch).toHaveBeenCalledWith(
-            `${API_ROOT}/foo`,
-            { method: 'GET' }
-        );
+        expect(successfulFetch).toHaveBeenCalledWith(`${API_ROOT}/foo`, {
+            method: 'GET'
+        });
         expect(responseJSON).toMatchObject(data);
     });
 
@@ -39,104 +33,86 @@ describe('testing fetching api', () => {
         expect.assertions(2);
 
         const data = { foo: 'bar' };
-        const successfulFetch = fetch.mockResponseOnce(
-            JSON.stringify({}),
-            { status: 200 }
-        );
+        const successfulFetch = fetch.mockResponseOnce(JSON.stringify({}), {
+            status: 200
+        });
 
         const response = await post('foo', data);
         const responseJSON = await response.json();
 
         expect(successfulFetch).toHaveBeenCalledTimes(1);
-        expect(successfulFetch).toHaveBeenCalledWith(
-            `${API_ROOT}/foo`,
-            {
-                method: 'POST',
-                body: JSON.stringify(data)
-            }
-        );
+        expect(successfulFetch).toHaveBeenCalledWith(`${API_ROOT}/foo`, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
     });
 
     it('should post empty data', async () => {
         expect.assertions(2);
 
-        const successfulFetch = fetch.mockResponseOnce(
-            JSON.stringify({}),
-            { status: 200 }
-        );
+        const successfulFetch = fetch.mockResponseOnce(JSON.stringify({}), {
+            status: 200
+        });
 
         const response = await post('foo');
         const responseJSON = await response.json();
 
         expect(successfulFetch).toHaveBeenCalledTimes(1);
-        expect(successfulFetch).toHaveBeenCalledWith(
-            `${API_ROOT}/foo`,
-            {
-                method: 'POST',
-                body: JSON.stringify({})
-            }
-        );
+        expect(successfulFetch).toHaveBeenCalledWith(`${API_ROOT}/foo`, {
+            method: 'POST',
+            body: JSON.stringify({})
+        });
     });
 
     it('should delete expected data', async () => {
         expect.assertions(2);
 
-        const successfulFetch = fetch.mockResponseOnce(
-            JSON.stringify({}),
-            { status: 200 }
-        );
+        const successfulFetch = fetch.mockResponseOnce(JSON.stringify({}), {
+            status: 200
+        });
 
         const response = await del('foo');
         const responseJSON = await response.json();
 
         expect(successfulFetch).toHaveBeenCalledTimes(1);
-        expect(successfulFetch).toHaveBeenCalledWith(
-            `${API_ROOT}/foo`,
-            { method: 'DELETE' }
-        );
+        expect(successfulFetch).toHaveBeenCalledWith(`${API_ROOT}/foo`, {
+            method: 'DELETE'
+        });
     });
 
     it('should put expected data', async () => {
         expect.assertions(2);
 
         const data = { foo: 'bar' };
-        const successfulFetch = fetch.mockResponseOnce(
-            JSON.stringify({}),
-            { status: 200 }
-        );
+        const successfulFetch = fetch.mockResponseOnce(JSON.stringify({}), {
+            status: 200
+        });
 
         const response = await put('foo', data);
         const responseJSON = await response.json();
 
         expect(successfulFetch).toHaveBeenCalledTimes(1);
-        expect(successfulFetch).toHaveBeenCalledWith(
-            `${API_ROOT}/foo`,
-            {
-                method: 'PUT',
-                body: JSON.stringify(data)
-            }
-        );
+        expect(successfulFetch).toHaveBeenCalledWith(`${API_ROOT}/foo`, {
+            method: 'PUT',
+            body: JSON.stringify(data)
+        });
     });
 
     it('should put empty data', async () => {
         expect.assertions(2);
 
-        const successfulFetch = fetch.mockResponseOnce(
-            JSON.stringify({}),
-            { status: 200 }
-        );
+        const successfulFetch = fetch.mockResponseOnce(JSON.stringify({}), {
+            status: 200
+        });
 
         const response = await put('foo');
         const responseJSON = await response.json();
 
         expect(successfulFetch).toHaveBeenCalledTimes(1);
-        expect(successfulFetch).toHaveBeenCalledWith(
-            `${API_ROOT}/foo`,
-            {
-                method: 'PUT',
-                body: JSON.stringify({})
-            }
-        );
+        expect(successfulFetch).toHaveBeenCalledWith(`${API_ROOT}/foo`, {
+            method: 'PUT',
+            body: JSON.stringify({})
+        });
     });
 
     it('should resolve dummyGet', () => {

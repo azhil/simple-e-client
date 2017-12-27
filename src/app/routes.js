@@ -7,7 +7,7 @@ const routes = [
     {
         path: '/',
         exact: true,
-        render: () => <Redirect to='/messages' push={false} />
+        render: () => <Redirect to="/messages" push={false} />
     },
     {
         path: '/messages/:id?',

@@ -7,7 +7,10 @@
     "dev": "webpack-dev-server --config webpack.dev.js --progress --color",
     "prod": "IS_PROD='1' webpack --config webpack.prod.js --progress --color --profile --json > stats.json",
     "analyze": "webpack-bundle-analyzer ./stats.json ./docs/assets -m static -r ./docs/report.html -s gzip -O",
-    "test": "jest"
+    "test": "jest",
+    "pretty:check": "prettier --debug-check \"src/**/*.js\"",
+    "pretty:defferent": "prettier --list-different \"src/**/*.js\"",
+    "pretty": "prettier --write \"src/**/*.js\""
   },
   "keywords": [],
   "author": "azhil",

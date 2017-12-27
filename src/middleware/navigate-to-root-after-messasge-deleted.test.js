@@ -5,12 +5,14 @@ import * as messagesActionTypes from 'action-types/messages';
 
 import navigateToRootAfterMessageDeletedMiddleware from './navigate-to-root-after-message-deleted';
 
-const middlewares = [ navigateToRootAfterMessageDeletedMiddleware ];
+const middlewares = [navigateToRootAfterMessageDeletedMiddleware];
 const mockStore = configureMockStore(middlewares);
 
 describe('testing "navigate to root after message deleted" middleware', () => {
-    it('should navigate to root if message has been deleted while on it\'s page', () => {
-        const store = mockStore({ router: { location: { pathname: '/messages/1' } } });
+    it("should navigate to root if message has been deleted while on it's page", () => {
+        const store = mockStore({
+            router: { location: { pathname: '/messages/1' } }
+        });
         const action = { type: messagesActionTypes.MESSAGES_DELETE_SUCCESS };
 
         store.dispatch(action);
@@ -21,18 +23,20 @@ describe('testing "navigate to root after message deleted" middleware', () => {
                 type: CALL_HISTORY_METHOD,
                 payload: {
                     method: 'push',
-                    args: [ '/messages' ]
+                    args: ['/messages']
                 }
             }
         ]);
     });
 
     it('should not navigate anywhere if no message has been deleted', () => {
-        const store = mockStore({ router: { location: { pathname: '/messages' } } });
+        const store = mockStore({
+            router: { location: { pathname: '/messages' } }
+        });
         const action = { type: messagesActionTypes.MESSAGES_DELETE_SUCCESS };
 
         store.dispatch(action);
 
-        expect(store.getActions()).toEqual([ action ]);
+        expect(store.getActions()).toEqual([action]);
     });
-})
+});

@@ -17,12 +17,13 @@ const NavigationLink = styled(NavLink)`
     text-decoration: none;
 
     color: black;
-    
+
     display: block;
 
     padding: 5px 10px;
-    
-    &:hover, &.active {
+
+    &:hover,
+    &.active {
         background-color: lightyellow;
     }
 `;
@@ -58,12 +59,6 @@ export default class MessagesList extends Component {
             );
         }
 
-        return (
-            <List>
-                {
-                    this.props.list.map(this.renderListItem)
-                }
-            </List>
-        );
+        return <List>{this.props.list.map(this.renderListItem)}</List>;
     }
 }
