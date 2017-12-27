@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import * as MessagesActions from 'actions/messages';
 import * as MessagesSelectors from 'selectors/messages';
 
-export default store => next => action => {
+export default store => next => async action => {
     const result = next(action);
 
     if (action.type === LOCATION_CHANGE) {
@@ -22,9 +22,9 @@ export default store => next => action => {
                 !isEmpty(message)
                 && !message.isViewed
             ) {
-                store.dispatch(
+                await store.dispatch(
                     MessagesActions.put(
-                        messageIdMatch[1],
+                        Number(messageIdMatch[1]),
                         {
                             ...message,
                             isViewed: true
