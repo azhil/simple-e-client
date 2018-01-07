@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import * as MessagesActions from 'actions/messages';
 
-import MessagesListContainer from 'components/containers/messages-list';
+import MessagesListContainer from 'components/messages-list';
 import MessageContent from './components/message-content';
 
 import media from 'utils-css/media';
@@ -14,14 +14,14 @@ const MailBoxSidebar = styled.div`
 
     ${media.mobileL`
         display: block;
-    
+
         position: absolute;
 
         left: 0;
         top: 0;
         right: 60%;
         bottom: 0;
-    
+
         overflow-y: auto;
 
         background-color: ghostwhite;

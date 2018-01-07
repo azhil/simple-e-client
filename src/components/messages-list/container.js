@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import * as MessagesSelectors from 'selectors/messages';
 
-import MessagesList from 'components/messages-list';
+import MessagesList from './render';
 
 const mapStateToProps = state => ({
     list: MessagesSelectors.getList(state)
