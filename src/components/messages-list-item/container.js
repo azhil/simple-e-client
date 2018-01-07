@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as MessagesActions from 'actions/messages';
 import * as MessagesSelectors from 'selectors/messages';
 
-import MessagesListItem from 'components/messages-list-item';
+import MessagesListItem from './render';
 
 const mapStateToProps = (state, { id }) => ({
     sender: MessagesSelectors.getSender(id)(state),

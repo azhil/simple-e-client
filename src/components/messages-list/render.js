@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import MessagesListItemContainer from 'components/containers/messages-list-item';
+import MessagesListItemContainer from 'components/messages-list-item';
 
 const List = styled.ul`
     list-style-type: none;

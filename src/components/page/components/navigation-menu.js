@@ -9,7 +9,7 @@ import { HEIGHT_HEADER, HEIGHT_FOOTER } from 'constants/config';
 import * as NavigationMenuActions from 'actions/navigation-menu';
 import * as NavigationMenuSelectors from 'selectors/navigation-menu';
 
-import MessagesListContainer from 'components/containers/messages-list';
+import MessagesListContainer from 'components/messages-list';
 
 const FixedNavigationMenu = styled.div`
     position: fixed;
