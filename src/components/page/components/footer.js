@@ -10,11 +10,9 @@ import PositionFixed from 'components/styled/position-fixed';
 const Footer = props => (
     <PositionFixed
         {...props}
-
         right={0}
         bottom={0}
         left={0}
-
         height={`${HEIGHT_FOOTER}px`}
     />
 );

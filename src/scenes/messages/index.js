@@ -26,7 +26,11 @@ class Messages extends Component {
                 </Sidebar>
                 <Content>
                     <Switch>
-                        <Route path={`${url}/`} component={ThereIsNoMessage} exact />
+                        <Route
+                            path={`${url}/`}
+                            component={ThereIsNoMessage}
+                            exact
+                        />
                         <Route path={`${url}/:id`} component={MessageContent} />
                     </Switch>
                 </Content>

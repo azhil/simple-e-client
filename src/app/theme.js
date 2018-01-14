@@ -53,7 +53,7 @@ export const spacing = {
     normal: '1rem',
     big: '1.5rem',
     large: '1.75rem'
-}
+};
 
 injectGlobal`
     html,

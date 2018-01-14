@@ -34,13 +34,19 @@ export default class MessagesListItem extends Component {
                 <Box mx={Theme.spacing.small} flex="1">
                     <Flex column>
                         <Box mb={Theme.spacing.tiny}>
-                            <TextRegular color={Theme.colors.darkerGrey} bold>{sender}</TextRegular>
+                            <TextRegular color={Theme.colors.darkerGrey} bold>
+                                {sender}
+                            </TextRegular>
                         </Box>
                         <Box my={Theme.spacing.tiny}>
-                            <TextRegular color={Theme.colors.lightGrey}>{subject}</TextRegular>
+                            <TextRegular color={Theme.colors.lightGrey}>
+                                {subject}
+                            </TextRegular>
                         </Box>
                         <BoxRightAligned mt={Theme.spacing.tiny}>
-                            <TextSmall color={Theme.colors.grey}>{timeSent}</TextSmall>
+                            <TextSmall color={Theme.colors.grey}>
+                                {timeSent}
+                            </TextSmall>
                         </BoxRightAligned>
                     </Flex>
                 </Box>

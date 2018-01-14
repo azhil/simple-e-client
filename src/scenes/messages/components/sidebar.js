@@ -19,5 +19,4 @@ const Sidebar = PositionAbsolute.extend`
     `};
 `;
 
-
 export default props => <Sidebar {...props} right="60%" />;

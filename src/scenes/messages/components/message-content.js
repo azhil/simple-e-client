@@ -27,9 +27,7 @@ const BaseInfoText = ({ text, ...otherProps }) => (
     </TextBig>
 );
 
-const InfoText = props => (
-    <BaseInfoText {...props} bold />
-);
+const InfoText = props => <BaseInfoText {...props} bold />;
 
 class MessageContent extends Component {
     render() {
@@ -52,9 +50,7 @@ class MessageContent extends Component {
                     </div>
                 </MessageInfoWrapper>
                 <MessageContentWrapper>
-                    <TextBig color={Theme.colors.darkGrey}>
-                        {message}
-                    </TextBig>
+                    <TextBig color={Theme.colors.darkGrey}>{message}</TextBig>
                 </MessageContentWrapper>
             </div>
         );
