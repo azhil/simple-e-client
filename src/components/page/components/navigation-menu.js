@@ -2,28 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import media from 'utils-css/media';
+import * as Theme from 'app/theme';
 
 import { HEIGHT_HEADER, HEIGHT_FOOTER } from 'constants/config';
 
 import * as NavigationMenuActions from 'actions/navigation-menu';
 import * as NavigationMenuSelectors from 'selectors/navigation-menu';
 
+import PositionFixed from 'components/styled/position-fixed';
 import MessagesListContainer from 'components/messages-list';
 
-const FixedNavigationMenu = styled.div`
-    position: fixed;
+import media from 'utils-css/media';
 
-    left: 0;
-    top: ${HEIGHT_HEADER}px;
-    right: 0;
-    bottom: ${HEIGHT_FOOTER}px;
-
-    z-index: 20;
-
+const FixedNavigationMenu = styled(PositionFixed)`
     overflow-y: auto;
 
-    background-color: ghostwhite;
+    background-color: ${Theme.colors.lighterGrey};
 
     ${media.tablet`display: none;`};
 `;
@@ -33,7 +27,16 @@ class NavigationMenu extends Component {
         if (!this.props.isMenuShown) return null;
 
         return (
-            <FixedNavigationMenu onClick={this.props.onHideMenu}>
+            <FixedNavigationMenu
+                top={`${HEIGHT_HEADER}px`}
+                right={0}
+                bottom={`${HEIGHT_FOOTER}px`}
+                left={0}
+
+                zIndex={20}
+
+                onClick={this.props.onHideMenu}
+            >
                 <MessagesListContainer />
             </FixedNavigationMenu>
         );
