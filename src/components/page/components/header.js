@@ -30,7 +30,7 @@ const BoxMobile = styled(Box)`
 
     padding: 0 15px;
 
-    ${media.mobileL`display: none;`};
+    ${media.tablet`display: none;`};
 `;
 
 const NewMessagesText = styled.div`

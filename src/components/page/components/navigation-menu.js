@@ -25,7 +25,7 @@ const FixedNavigationMenu = styled.div`
 
     background-color: ghostwhite;
 
-    ${media.mobileL`display: none;`};
+    ${media.tablet`display: none;`};
 `;
 
 class NavigationMenu extends Component {
