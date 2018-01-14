@@ -1,3 +1,5 @@
+import { injectGlobal } from 'styled-components';
+
 export const breakpointMobileS = 320;
 export const breakpointMobileM = 375;
 export const breakpointMobileL = 425;
@@ -24,8 +26,8 @@ export const colors = {
     darkerGrey: 'black',
 
     lightYellow: 'lightyellow',
-    yellow: 'orange',
-    darkYellow: 'gold'
+    yellow: 'beige',
+    darkYellow: 'khaki'
 };
 
 export const text = {
@@ -35,6 +37,13 @@ export const text = {
         regular: '1rem',
         big: '1.25rem',
         large: '1.5rem'
+    },
+    line: {
+        tiny: '0.75rem',
+        small: '0.1rem',
+        regular: '1.25rem',
+        big: '1.5rem',
+        large: '1.75rem'
     }
 };
 
@@ -45,3 +54,10 @@ export const spacing = {
     big: '1.5rem',
     large: '1.75rem'
 }
+
+injectGlobal`
+    html,
+    body {
+        background-color: ${colors.lighterGrey};
+    }
+`;
