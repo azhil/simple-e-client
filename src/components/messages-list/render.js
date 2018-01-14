@@ -22,9 +22,7 @@ export default class MessagesList extends Component {
         const { list } = this.props;
 
         if (!list.length) {
-            return (
-                <ThereAreNoMessages />
-            );
+            return <ThereAreNoMessages />;
         }
 
         return <List>{this.props.list.map(this.renderListItem)}</List>;

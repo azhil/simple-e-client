@@ -10,7 +10,6 @@ import PositionFixed from 'components/styled/position-fixed';
 const Content = props => (
     <PositionFixed
         {...props}
-
         top={`${HEIGHT_HEADER}px`}
         right={0}
         bottom={`${HEIGHT_FOOTER}px`}

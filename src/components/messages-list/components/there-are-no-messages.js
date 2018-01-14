@@ -13,6 +13,8 @@ const ThereAreNoMessagesInnerWrapper = styled.div`
 
 export default () => (
     <ThereAreNoMessagesInnerWrapper>
-        <TextLarge color={Theme.colors.darkGrey} bold>There are no messages in the box</TextLarge>
+        <TextLarge color={Theme.colors.darkGrey} bold>
+            There are no messages in the box
+        </TextLarge>
     </ThereAreNoMessagesInnerWrapper>
-)
+);

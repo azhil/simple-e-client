@@ -32,9 +32,7 @@ class NavigationMenu extends Component {
                 right={0}
                 bottom={`${HEIGHT_FOOTER}px`}
                 left={0}
-
                 zIndex={20}
-
                 onClick={this.props.onHideMenu}
             >
                 <MessagesListContainer />

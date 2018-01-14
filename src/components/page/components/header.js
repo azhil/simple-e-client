@@ -10,11 +10,9 @@ import PositionFixed from 'components/styled/position-fixed';
 const Header = props => (
     <PositionFixed
         {...props}
-
         top={0}
         right={0}
         left={0}
-
         height={`${HEIGHT_HEADER}px`}
     />
 );
