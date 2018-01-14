@@ -15,3 +15,33 @@ export const breakpoints = {
     screenL: breakpointLargeScreen,
     screenW: breakpointWideScreen
 };
+
+export const colors = {
+    lighterGrey: 'ghostwhite',
+    lightGrey: 'lightgrey',
+    grey: 'grey',
+    darkGrey: 'darkgrey',
+    darkerGrey: 'black',
+
+    lightYellow: 'lightyellow',
+    yellow: 'orange',
+    darkYellow: 'gold'
+};
+
+export const text = {
+    size: {
+        tiny: '0.5rem',
+        small: '0.75rem',
+        regular: '1rem',
+        big: '1.25rem',
+        large: '1.5rem'
+    }
+};
+
+export const spacing = {
+    tiny: '0.25rem',
+    small: '0.5rem',
+    normal: '1rem',
+    big: '1.5rem',
+    large: '1.75rem'
+}

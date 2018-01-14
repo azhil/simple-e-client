@@ -6,30 +6,10 @@ import IconEye from 'react-icons/lib/fa/eye';
 import IconEyeSlash from 'react-icons/lib/fa/eye-slash';
 import IconTrash from 'react-icons/lib/fa/trash';
 
+import * as Theme from 'app/theme';
+
 import BoxRightAligned from 'components/styled/box-right-aligned';
-
-const Sender = styled.span`
-    color: black;
-    opacity: 0.85;
-
-    font-weight: bold;
-    font-size: 1rem;
-`;
-
-const Subject = styled.span`
-    color: darkgrey;
-
-    font-weight: normal;
-    font-size: 0.95rem;
-`;
-
-const TimeSent = styled.span`
-    color: black;
-    opacity: 0.8;
-
-    font-weight: normal;
-    font-size: 0.9rem;
-`;
+import { TextRegular, TextSmall } from 'components/styled/text';
 
 export default class MessagesListItem extends Component {
     handleClickTrashIcon = e => {
@@ -44,27 +24,27 @@ export default class MessagesListItem extends Component {
 
         return (
             <Flex>
-                <Box mr="5px">
+                <Box mr={Theme.spacing.small}>
                     {isViewed ? (
-                        <IconEyeSlash color="lightgrey" />
+                        <IconEyeSlash color={Theme.colors.lightGrey} />
                     ) : (
-                        <IconEye color="lightblue" />
+                        <IconEye />
                     )}
                 </Box>
-                <Box mx="5px" flex="1">
+                <Box mx={Theme.spacing.small} flex="1">
                     <Flex column>
-                        <Box mb="2px">
-                            <Sender>{sender}</Sender>
+                        <Box mb={Theme.spacing.tiny}>
+                            <TextRegular color={Theme.colors.darkerGrey} bold>{sender}</TextRegular>
                         </Box>
-                        <Box my="2px">
-                            <Subject>{subject}</Subject>
+                        <Box my={Theme.spacing.tiny}>
+                            <TextRegular color={Theme.colors.lightGrey}>{subject}</TextRegular>
                         </Box>
-                        <BoxRightAligned mt="2px">
-                            <TimeSent>{timeSent}</TimeSent>
+                        <BoxRightAligned mt={Theme.spacing.tiny}>
+                            <TextSmall color={Theme.colors.grey}>{timeSent}</TextSmall>
                         </BoxRightAligned>
                     </Flex>
                 </Box>
-                <BoxRightAligned ml="5px">
+                <BoxRightAligned ml={Theme.spacing.small}>
                     <IconTrash onClick={this.handleClickTrashIcon} />
                 </BoxRightAligned>
             </Flex>

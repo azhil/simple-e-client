@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import Messages from 'pages/messages';
+import Messages from 'scenes/messages';
 
 const routes = [
     {
@@ -10,8 +10,7 @@ const routes = [
         render: () => <Redirect to="/messages" push={false} />
     },
     {
-        path: '/messages/:id?',
-        exact: true,
+        path: '/messages',
         component: Messages
     }
 ];

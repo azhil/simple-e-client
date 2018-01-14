@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -64,7 +64,7 @@ import NavigationMenu from './components/navigation-menu';
 class Page extends Component {
     render() {
         return (
-            <div>
+            <Fragment>
                 <NavigationMenu />
                 <FixedHeader>
                     <Header />
@@ -77,7 +77,7 @@ class Page extends Component {
                 <FixedFooter>
                     <Fotter>simple e-mail client</Fotter>
                 </FixedFooter>
-            </div>
+            </Fragment>
         );
     }
 }
