@@ -1,31 +1,14 @@
 import React, { Fragment, Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import styled from 'styled-components';
-
-import * as Theme from 'app/theme';
-
-import { HEIGHT_FOOTER } from 'constants/config';
-
-import PositionFixed from 'components/styled/position-fixed';
-import { TextBig } from 'components/styled/text';
-
-import spacing from 'utils-css/spacing';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import Header from './components/header';
 import Content from './components/content';
 import Footer from './components/footer';
+import FooterDefault from './components/fotter-default';
 import Container from './components/container';
 
-import HeaderMessages from './components/header-messages';
-import NavigationMenu from './components/navigation-menu';
-
-const FooterInnerWrapper = styled.div`
-    ${spacing.padding(0, Theme.spacing.normal)};
-
-    background-color: ${Theme.colors.lighterGrey};
-
-    text-align: right;
-`;
+import HeaderMessages from './components/route-related/messages/header-messages';
+import NavigationMenu from './components/route-related/messages/navigation-menu';
 
 class Page extends Component {
     render() {
@@ -33,7 +16,10 @@ class Page extends Component {
             <Fragment>
                 <NavigationMenu />
                 <Header>
-                    <HeaderMessages />
+                    <Switch>
+                        <Route path="/" component={null} exact />
+                        <Route path="/messages" component={HeaderMessages} />
+                    </Switch>
                 </Header>
                 <Content>
                     <Container>
@@ -41,14 +27,7 @@ class Page extends Component {
                     </Container>
                 </Content>
                 <Footer>
-                    <FooterInnerWrapper>
-                        <TextBig
-                            color={Theme.colors.darkGrey}
-                            line={`${HEIGHT_FOOTER}px`}
-                        >
-                            simple e-mail client
-                        </TextBig>
-                    </FooterInnerWrapper>
+                    <FooterDefault />
                 </Footer>
             </Fragment>
         );
